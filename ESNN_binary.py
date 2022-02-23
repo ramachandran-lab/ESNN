@@ -165,5 +165,12 @@ for i in range(len(all_data['pips'])):
         all_cs.append(temp_cs)
 all_data['cs'] = all_cs
 
+#
+#
+print(np.where(all_data['pips']>0.5))
+print(all_data['cs'])
+
+
+
 
 

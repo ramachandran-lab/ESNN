@@ -171,3 +171,8 @@ all_data = {}
 all_data['loss'] = all_myloss
 all_data['pips'] = all_prbs
 all_data['cs'] = all_cs
+
+#
+#
+print(np.where(all_data['pips']>0.5))
+print(all_data['cs'])
