@@ -11,3 +11,8 @@ numpy >= 1.17.2,
 Pillow >= 7.1.0,
 scikit-learn >= 0.21.3,
 scipy >= 1.4.1
+
+# Code:
+1. Regression example: ESNN_regression.py
+2. Classification example: ESNN_regression.py
+To run on your own data, one can simply change the file path in the code. 
