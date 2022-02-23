@@ -68,7 +68,7 @@ def get_pips(model, tau):
 #model
 all_model = list()
 init_vals = []
-model = BNNSparseMLP(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, False, init_vals)
+model = ESNN(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, False, init_vals)
 all_myloss = list()
 all_prbs = list()
 all_cs = list()
@@ -159,7 +159,7 @@ while l<L and iteration<= max_iter:
                     break
             temp_cs = np.argsort(temp_to_add)[cs_idx:]
             all_cs.append(temp_cs)
-    model = BNNSparseMLP(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, False, init_vals)
+    model = SNN(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, False, init_vals)
     iteration+=1
 
 

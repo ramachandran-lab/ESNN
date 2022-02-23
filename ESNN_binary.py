@@ -82,7 +82,7 @@ for i in range(L):
     temp_init_val = np.reshape(temp_init_val, (input_size, 1))
     init_vals.append(tf.convert_to_tensor(temp_init_val))
 #model
-model = JointModel(1, model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, init_vals)
+model = ESNN(1, model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, init_vals)
 all_myloss = list()
 #Training
 while l<L and iteration<= max_iter:
@@ -129,7 +129,7 @@ while l<L and iteration<= max_iter:
             temp_init_val = init_val*(1-pips)
         else:
             temp_init_val = init_val
-        model.models.append(BNNSparseMLP(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, True, temp_init_val))
+        model.models.append(SNN(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, True, temp_init_val))
     iteration += 1
 #delete last untrained model
 del model.models[len(model.models)-1]

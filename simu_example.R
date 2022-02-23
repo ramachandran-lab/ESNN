@@ -100,5 +100,9 @@ write.table(causal_snps, file = 'data/causal_reg.txt', col.names = FALSE, row.na
             quote = FALSE, sep = " ")
 
 
-
+#RUN SUSIE
+library(susieR)
+fit = susie(X, Y)
+fit$pip
+fit$sets$cs
 

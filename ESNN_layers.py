@@ -136,11 +136,11 @@ class BNNGroupLayer(tf.keras.layers.Layer):
 
 
 #Bayesian Sparse Multi-Layer Perceptron
-class BNNSparseMLP(tf.keras.Model):
+class SNN(tf.keras.Model):
     def __init__(self, model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, joint, init_val):
         """
         """
-        super(BNNSparseMLP, self).__init__()
+        super(SNN, self).__init__()
         #model type: classification or regression
         self.model_type = model_type
         #reg type: logistic or probit
@@ -208,17 +208,17 @@ class BNNSparseMLP(tf.keras.Model):
             return pred, kl
 
 
-class JointModel(tf.keras.Model):
+class ESNN(tf.keras.Model):
     def __init__(self, L, model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, init_vals):
         """
         """
-        super(JointModel, self).__init__()
+        super(ESNN, self).__init__()
         self.models = list()
         self.model_type = model_type
         self.all_cs = list()
         self.L = L
         for i in range(L):
-            self.models.append(BNNSparseMLP(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, True, init_vals[i]))
+            self.models.append(SNN(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, True, init_vals[i]))
     def call(self, x, y, sample, nsample, l):
         pred, kl = self.models[0].call(x, y, sample, nsample)
         for i in range(1, l+1):
