@@ -15,5 +15,6 @@ scipy >= 1.4.1
 # Code:
 1. Regression example: ESNN_regression.py
 2. Classification example: ESNN_regression.py
+3. Example code to generate simulation data: simu_example.R
 
-To run on your own data, one can simply change the file path in the code. 
+To run on your own data, one can simply change the file path in the code. Simulation code contains example to generate case control gwas data under liability threshold model and a toy regression example.
