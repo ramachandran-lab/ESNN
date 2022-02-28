@@ -1,4 +1,4 @@
-# Enemble of Single-effect Neural Network (ESNN)
+# Enemble of Single-Effect Neural Networks (ESNN)
 This repo is the official implementation for "Enemble of Single-Effect Neural Network" (ESNN) framework. It contains example code for running ESNN on continuous and binary classification data.
 
 ## Installation and Dependencies
