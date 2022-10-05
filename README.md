@@ -21,7 +21,7 @@ To run on your own data, one can simply change the file path in the code. The si
 
 ## RELEVANT CITATIONS
 
-W. Cheng, S. Ramachandran, and L. Crawford. Uncertainty Quantification in Variable Selection for Genetic Fine-Mapping using Bayesian Neural Networks. _biorxiv_. 2022.02.23.481675.
+W. Cheng, S. Ramachandran, and L. Crawford. Uncertainty Quantification in Variable Selection for Genetic Fine-Mapping using Bayesian Neural Networks. _iScience_. *25*(7): 104553.
 
 ## QUESTIONS AND FEEDBACK
 For questions or concerns with the ESNN software, please contact [Wei Cheng](mailto:wei_cheng1@brown.edu) or [Lorin Crawford](mailto:lorin_crawford@brown.edu).
