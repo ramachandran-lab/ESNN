@@ -64,11 +64,19 @@ def get_pips(model, tau):
 
 ####################################NN
 ##initializations
+#if initialize with lasso coefficient
 
+init_val = np.transpose(abs(clf.coef_))
+init_val = init_val.astype('float32')
+init_val = np.reshape(init_val, (input_size, 1))
+init_vals = list()
+for i in range(L):
+    temp_init_val = init_val
+    temp_init_val = np.reshape(temp_init_val, (input_size, 1))
+    init_vals.append(tf.convert_to_tensor(temp_init_val))
 #model
 all_model = list()
-init_vals = []
-model = ESNN(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, False, init_vals)
+model = SNN(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, False, init_vals[0])
 all_myloss = list()
 all_prbs = list()
 all_cs = list()
@@ -159,7 +167,11 @@ while l<L and iteration<= max_iter:
                     break
             temp_cs = np.argsort(temp_to_add)[cs_idx:]
             all_cs.append(temp_cs)
-    model = SNN(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, False, init_vals)
+    if len(all_cs)>0:
+        temp_init_val = tf.random.truncated_normal([input_size, 1], mean=0.0, stddev=0.1, dtype=tf.dtypes.float32)
+    else:
+        temp_init_val = init_vals[0]
+    model = SNN(model_type, reg_type, sigma, input_size, hidden_sizes, temperature, tau, False, temp_init_val)
     iteration+=1
 
 
